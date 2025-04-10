@@ -1,0 +1,5 @@
+{
+	"tailwindCSS.classAttributes": ["class"],
+	"tailwindCSS.classFunctions": ["cn", "tv"],
+	"tailwindCSS.experimental.classRegex": [["Variants\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]"]]
+}
