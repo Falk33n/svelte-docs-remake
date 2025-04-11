@@ -6,6 +6,14 @@ const docSchema = s
 		title: s.string(),
 		description: s.string(),
 		path: s.path(),
+		prevPath: s
+			.record(s.string(), s.string())
+			.refine((value) => Object.keys(value).length === 1)
+			.optional(),
+		nextPath: s
+			.record(s.string(), s.string())
+			.refine((value) => Object.keys(value).length === 1)
+			.optional(),
 		links: s.record(s.string(), s.string()).optional(),
 	})
 	.transform((data) => {

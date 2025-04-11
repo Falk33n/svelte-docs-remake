@@ -18,6 +18,7 @@
 	import CopyIcon from '@lucide/svelte/icons/copy';
 	import XIcon from '@lucide/svelte/icons/x';
 	import type { Snippet } from 'svelte';
+	import { scale } from 'svelte/transition';
 	import { Button, type ButtonProps } from '../ui/button';
 
 	let {
@@ -30,7 +31,7 @@
 		...restProps
 	}: CopyButtonProps = $props();
 
-	const clipboard = new UseClipboard();
+	const clipboard = new UseClipboard({ delay: 1000 });
 </script>
 
 <Button
@@ -48,20 +49,29 @@
 	}}
 >
 	{#if clipboard.status === 'success'}
-		<div aria-label="Copied">
+		<span
+			in:scale={{ duration: animationDuration, start: 0.85 }}
+			aria-label="Copied"
+		>
 			<CheckIcon aria-hidden />
-		</div>
+		</span>
 	{:else if clipboard.status === 'failure'}
-		<div aria-label="Failed to copy">
+		<span
+			in:scale={{ duration: animationDuration, start: 0.85 }}
+			aria-label="Failed to copy"
+		>
 			<XIcon aria-hidden />
-		</div>
+		</span>
 	{:else}
-		<div aria-label="Copy">
+		<span
+			in:scale={{ duration: animationDuration, start: 0.85 }}
+			aria-label="Copy"
+		>
 			{#if icon}
 				{@render icon()}
 			{:else}
 				<CopyIcon aria-hidden />
 			{/if}
-		</div>
+		</span>
 	{/if}
 </Button>

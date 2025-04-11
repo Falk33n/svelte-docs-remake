@@ -50,3 +50,18 @@ export async function getDoc(slug: string) {
 		title: metadata.title,
 	};
 }
+
+export function capitalize(str: string) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export function capitalizeDocsTitleLink(str: string) {
+	const splitWords = str.split(/[\s-]+/);
+
+	const capitalizedWords = splitWords.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+
+	return {
+		text: capitalizedWords.join(' '),
+		link: capitalizedWords.join('-'),
+	};
+}
