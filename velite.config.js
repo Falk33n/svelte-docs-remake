@@ -4,17 +4,9 @@ import { defineCollection, defineConfig, s } from 'velite';
 const docSchema = s
 	.object({
 		title: s.string(),
-		description: s.string().optional(),
+		description: s.string(),
 		path: s.path(),
-		navLabel: s.string().optional(),
-		links: s
-			.object({
-				doc: s.string().optional(),
-				api: s.string().optional(),
-				source: s.string().optional(),
-			})
-			.optional(),
-		component: s.boolean().default(false),
+		links: s.record(s.string(), s.string()).optional(),
 	})
 	.transform((data) => {
 		return {

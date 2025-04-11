@@ -18,7 +18,6 @@
 	import CopyIcon from '@lucide/svelte/icons/copy';
 	import XIcon from '@lucide/svelte/icons/x';
 	import type { Snippet } from 'svelte';
-	import { scale } from 'svelte/transition';
 	import { Button, type ButtonProps } from '../ui/button';
 
 	let {
@@ -38,7 +37,10 @@
 	{...restProps}
 	{variant}
 	size="icon"
-	class={cn(className)}
+	class={cn(
+		'bg-muted size-9 cursor-pointer opacity-80 transition-all hover:bg-white hover:opacity-100 focus-visible:bg-white focus-visible:opacity-100',
+		className,
+	)}
 	type="button"
 	onclick={async () => {
 		const status = await clipboard.copy(text);
@@ -46,24 +48,15 @@
 	}}
 >
 	{#if clipboard.status === 'success'}
-		<div
-			in:scale={{ duration: animationDuration, start: 0.85 }}
-			aria-label="Copied"
-		>
+		<div aria-label="Copied">
 			<CheckIcon aria-hidden />
 		</div>
 	{:else if clipboard.status === 'failure'}
-		<div
-			in:scale={{ duration: animationDuration, start: 0.85 }}
-			aria-label="Failed to copy"
-		>
+		<div aria-label="Failed to copy">
 			<XIcon aria-hidden />
 		</div>
 	{:else}
-		<div
-			in:scale={{ duration: animationDuration, start: 0.85 }}
-			aria-label="Copy"
-		>
+		<div aria-label="Copy">
 			{#if icon}
 				{@render icon()}
 			{:else}

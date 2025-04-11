@@ -26,7 +26,7 @@
 
 <a
 	bind:this={ref}
-	class={cn('font-medium underline underline-offset-4', className)}
+	class={cn('font-medium underline underline-offset-2', className)}
 	{href}
 	{target}
 	{rel}

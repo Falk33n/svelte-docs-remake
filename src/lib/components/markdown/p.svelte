@@ -22,10 +22,10 @@
 	}: ParagraphProps = $props();
 </script>
 
-<h6
+<p
 	bind:this={ref}
-	class={cn('leading-7 [&:not(:first-child)]:mt-6', className)}
+	class={cn('leading-6 [&:not(:first-child)]:mt-4', className)}
 	{...restProps}
 >
 	{@render children?.()}
-</h6>
+</p>

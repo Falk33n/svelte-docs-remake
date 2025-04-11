@@ -1,3 +1,5 @@
+@reference './tailwind.css';
+
 .markdown code {
 	@apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm;
 }
@@ -5,24 +7,6 @@
 [data-theme*='github-dark'] {
 	display: flex !important;
 	flex-direction: column;
-}
-
-[data-style='new-york'] [__style__='default'] {
-	display: none;
-}
-
-[data-style='default'] [data-style='default'] {
-	display: flex;
-	flex-direction: column;
-}
-
-[data-style='new-york'] [data-style='new-york'] {
-	display: flex;
-	flex-direction: column;
-}
-
-[data-style='default'] [__style__='new-york'] {
-	display: none;
 }
 
 [data-rehype-pretty-code-figure] {
@@ -61,7 +45,7 @@
 }
 
 [data-metadata] .pre-copy-btn {
-	@apply top-16 !important;
+	@apply !top-16;
 }
 
 [data-rehype-pretty-code-figure] .line--highlighted {
@@ -69,7 +53,7 @@
 }
 
 [data-rehype-pretty-code-figure] .with--meta {
-	@apply top-16 !important;
+	@apply !top-16;
 }
 
 [data-rehype-pretty-code-figure] .line-highlighted span {

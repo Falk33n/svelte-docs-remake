@@ -27,14 +27,16 @@
 <pre
 	bind:this={ref}
 	class={cn(
-		'mt-6 mb-4 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900',
+		'selection:bg-background selection:text-foreground my-4 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-900 px-2 py-6',
 		className,
 	)}
 	{...restProps}>
 	{@render children?.()}
+
+
 </pre>
 
 <CopyButton
 	text={code}
-	class={cn('pre-copy-btn absolute top-2 right-2')}
+	class={cn('pre-copy-btn absolute top-6 right-6')}
 />
