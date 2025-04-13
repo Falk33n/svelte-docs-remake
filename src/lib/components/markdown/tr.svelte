@@ -1,22 +1,11 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	type TableRowProps = WithElementRef<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
-</script>
+	type Props = WithElementRef<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: TableRowProps = $props();
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 </script>
 
 <tr

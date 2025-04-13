@@ -1,15 +1,21 @@
 <script lang="ts">
-	import { IsLaptop } from '$lib/hooks/media-queries.svelte';
+	import { DocsSidebar } from '$lib/components/docs';
+	import { SidebarProvider } from '$lib/components/ui/sidebar';
 	import type { LayoutProps } from './$types';
 
-	let { children }: LayoutProps = $props();
+	let { data, children }: LayoutProps = $props();
 
-	const isLaptop = $derived(new IsLaptop().current);
+	const isSvelteKit = $derived(data.isSvelteKit);
 </script>
 
-<div class="w-full xl:mx-auto xl:w-[1400px]">
-	<div class="lg:grid lg:grid-cols-[300px_1fr]">
-		<nav></nav>
+<div class="w-full xl:mx-auto xl:max-w-[1500px]">
+	<div class="lg:grid lg:grid-cols-[240px_1fr]">
+		<SidebarProvider>
+			<DocsSidebar
+				sidebarLinks={data.sidebarLinks}
+				{isSvelteKit}
+			/>
+		</SidebarProvider>
 
 		{@render children()}
 	</div>

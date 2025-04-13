@@ -1,7 +1,7 @@
 @reference './tailwind.css';
 
 .markdown code {
-	@apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm;
+	@apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] text-sm leading-7 font-semibold;
 }
 
 [data-theme*='github-dark'] {

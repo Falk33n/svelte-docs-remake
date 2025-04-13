@@ -1,27 +1,16 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	type UnorderedListProps = WithElementRef<HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
-</script>
+	type Props = WithElementRef<HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: UnorderedListProps = $props();
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 </script>
 
 <ul
 	bind:this={ref}
-	class={cn('my-6 ml-6 list-disc', className)}
+	class={cn('my-6 ml-6 list-inside list-disc', className)}
 	{...restProps}
 >
 	{@render children?.()}

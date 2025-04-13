@@ -2,8 +2,6 @@
 	lang="ts"
 	module
 >
-	import type { Snippet } from 'svelte';
-
 	export {
 		a,
 		blockquote,
@@ -25,8 +23,12 @@
 		tr,
 		ul,
 	} from './index';
+</script>
 
-	type BlueprintBase = {
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	type BaseProps = {
 		title: string;
 		description: string;
 		source: string;
@@ -34,11 +36,9 @@
 		radix: string;
 	};
 
-	type BlueprintProps = BlueprintBase & { children?: Snippet<[BlueprintBase]> };
-</script>
+	type Props = BaseProps & { children?: Snippet<[BaseProps]> };
 
-<script lang="ts">
-	let { title, description, component, radix, source, children }: BlueprintProps = $props();
+	let { title, description, component, radix, source, children }: Props = $props();
 </script>
 
 {@render children?.({ title, description, component, radix, source })}

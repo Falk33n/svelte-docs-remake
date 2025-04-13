@@ -2,13 +2,13 @@ import { getDoc } from '$lib/utils';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const load: PageLoad = async (event) => {
-	const { component, title, metadata } = await getDoc(event.params.slug);
+    const { component, title, metadata } = await getDoc(event.params.slug);
 
-	return {
-		component,
-		metadata,
-		title,
-	};
+    return {
+        component,
+        metadata,
+        title,
+    };
 };
 
 export const entries: EntryGenerator = () => {
@@ -16,7 +16,7 @@ export const entries: EntryGenerator = () => {
 	const entries = [];
 
 	for (const path of Object.keys(modules)) {
-		const slug = path.replace('/src/content/', '').replace('.md', '').replace('/index', '');
+		const slug = path.replace('/src/content/', '').replace('.md', '');
 		entries.push({ slug });
 	}
 

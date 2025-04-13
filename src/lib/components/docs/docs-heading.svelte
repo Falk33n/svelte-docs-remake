@@ -1,5 +1,6 @@
 <script lang="ts">
-	import * as HTMLElement from '$lib/components/markdown';
+	import { convertToHref } from '$lib/utils';
+	import * as HTMLElement from '../markdown';
 	import { Separator } from '../ui/separator';
 
 	type Props = {
@@ -8,12 +9,14 @@
 	};
 
 	let { title, description }: Props = $props();
+
+	const titleAsHref = $derived(convertToHref(title));
 </script>
 
 <header class="space-y-4">
 	<HTMLElement.h1
 		class="mt-0 scroll-mt-40"
-		id={title}
+		id={titleAsHref}
 	>
 		{title}
 	</HTMLElement.h1>

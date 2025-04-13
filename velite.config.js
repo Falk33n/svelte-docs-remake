@@ -5,6 +5,8 @@ const docSchema = s
 	.object({
 		title: s.string(),
 		description: s.string(),
+		category: s.string(),
+		order: s.number(),
 		path: s.path(),
 		prevPath: s
 			.record(s.string(), s.string())
@@ -14,7 +16,7 @@ const docSchema = s
 			.record(s.string(), s.string())
 			.refine((value) => Object.keys(value).length === 1)
 			.optional(),
-		links: s.record(s.string(), s.string()).optional(),
+		linksOnThisPage: s.record(s.string(), s.string()).optional(),
 	})
 	.transform((data) => {
 		return {

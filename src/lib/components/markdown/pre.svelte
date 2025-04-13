@@ -1,19 +1,13 @@
-<script
-	lang="ts"
-	module
->
-	import type { WithElementRef } from 'bits-ui';
-	import type { HTMLAttributes } from 'svelte/elements';
-
-	type PreProps = WithElementRef<HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
-</script>
-
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import type { WithElementRef } from 'bits-ui';
 	import { onMount } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import CopyButton from './copy-button.svelte';
 
-	let { ref = $bindable(null), class: className, children, ...restProps }: PreProps = $props();
+	type Props = WithElementRef<HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
+
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 
 	let code = $state('');
 

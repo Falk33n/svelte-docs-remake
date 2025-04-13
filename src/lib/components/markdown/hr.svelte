@@ -1,17 +1,11 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	type HorizontalRuleProps = WithElementRef<HTMLAttributes<HTMLHRElement>, HTMLHRElement>;
-</script>
+	type Props = WithElementRef<HTMLAttributes<HTMLHRElement>, HTMLHRElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let { ref = $bindable(null), class: className, ...restProps }: HorizontalRuleProps = $props();
+	let { ref = $bindable(null), class: className, ...restProps }: Props = $props();
 </script>
 
 <hr

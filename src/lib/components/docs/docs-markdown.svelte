@@ -1,7 +1,7 @@
 <script lang="ts">
-	import * as HTMLElement from '$lib/components/markdown';
 	import EditIcon from '@lucide/svelte/icons/edit';
 	import type { Component } from 'svelte';
+	import * as HTMLElement from '../markdown';
 
 	type Props = {
 		component: Component;
@@ -24,7 +24,7 @@
 	<HTMLElement.p class="pt-6">
 		<HTMLElement.a
 			href={`https://github.com/Falk33n/svelte-docs-remake/edit/main/src/content/${path}.md`}
-			class="flex items-center gap-2"
+			class="text-primary flex items-center gap-2 no-underline hover:underline"
 			aria-label="Edit this page on GitHub, opens in a new tab"
 		>
 			<EditIcon

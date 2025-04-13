@@ -4,49 +4,41 @@
 		DocsHeading,
 		DocsMarkdown,
 		DocsOnThisPage,
+		DocsOnThisPageAccordion,
 		DocsOtherDocumentations,
 	} from '$lib/components/docs';
-	import { IsLaptop } from '$lib/hooks/media-queries.svelte';
-	import { capitalize } from '$lib/utils';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
 	const metadata = $derived(data.metadata);
-
-	const currentPath = $derived.by(() => {
-		const directories = metadata.slugFull.split('/');
-		const currentDirectory = directories[directories.length - 1];
-		return capitalize(currentDirectory);
-	});
-
-	const isSvelteKit = $derived.by(() => {
-		const svelteDirectory = metadata.slugFull.split('/')[1];
-		return svelteDirectory !== 'svelte';
-	});
-
-	const isLaptop = $derived(new IsLaptop().current);
+	const isSvelteKit = $derived(data.isSvelteKit);
 </script>
 
 <svelte:head>
-	<title>{currentPath} | Docs | {isSvelteKit ? 'SvelteKit' : 'Svelte'}</title>
+	<title>{data.title} | Docs | {isSvelteKit ? 'SvelteKit' : 'Svelte'}</title>
 	<meta
 		name="description"
 		content={metadata.description}
 	/>
 </svelte:head>
 
-<div class="px-4 py-12 sm:px-6 lg:px-12 lg:py-16">
+<div class="px-4 py-12 sm:px-6 lg:px-12 lg:py-16 2xl:pr-0">
 	<DocsBreadcrumb
 		title={metadata.title}
 		{isSvelteKit}
 	/>
 
-	<main class="py-0 lg:gap-8 xl:grid xl:grid-cols-[1fr_200px] xl:pr-12">
+	<main class="lg:gap-8 xl:grid xl:grid-cols-[1fr_250px]">
 		<div>
 			<DocsHeading
-				title={data.title}
 				description={metadata.description}
+				title={data.title}
+			/>
+
+			<DocsOnThisPageAccordion
+				linksOnThisPage={metadata.linksOnThisPage}
+				title={data.title}
 			/>
 
 			<DocsMarkdown
@@ -61,11 +53,9 @@
 			/>
 		</div>
 
-		{#if isLaptop}
-			<DocsOnThisPage
-				title={data.title}
-				links={metadata.links}
-			/>
-		{/if}
+		<DocsOnThisPage
+			linksOnThisPage={metadata.linksOnThisPage}
+			title={data.title}
+		/>
 	</main>
 </div>

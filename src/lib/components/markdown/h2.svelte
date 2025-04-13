@@ -1,22 +1,11 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	type HeadingProps = WithElementRef<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
-</script>
+	type Props = WithElementRef<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: HeadingProps = $props();
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 </script>
 
 <h2

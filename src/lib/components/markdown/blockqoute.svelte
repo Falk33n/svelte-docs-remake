@@ -1,22 +1,11 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLBlockquoteAttributes } from 'svelte/elements';
 
-	type BlockquoteProps = WithElementRef<HTMLBlockquoteAttributes, HTMLQuoteElement>;
-</script>
+	type Props = WithElementRef<HTMLBlockquoteAttributes, HTMLQuoteElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: BlockquoteProps = $props();
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 </script>
 
 <blockquote

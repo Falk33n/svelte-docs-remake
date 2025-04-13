@@ -1,17 +1,11 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLImgAttributes } from 'svelte/elements';
 
-	type ImageProps = WithElementRef<HTMLImgAttributes, HTMLImageElement>;
-</script>
+	type Props = WithElementRef<HTMLImgAttributes, HTMLImageElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let { ref = $bindable(null), class: className, src, alt, ...restProps }: ImageProps = $props();
+	let { ref = $bindable(null), class: className, src, alt, ...restProps }: Props = $props();
 </script>
 
 <img

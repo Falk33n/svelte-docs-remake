@@ -1,35 +1,24 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-	type AnchorProps = WithElementRef<HTMLAnchorAttributes, HTMLAnchorElement>;
-</script>
+	type Props = WithElementRef<HTMLAnchorAttributes, HTMLAnchorElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		href,
-		...restProps
-	}: AnchorProps = $props();
+	let { ref = $bindable(null), class: className, children, href, ...restProps }: Props = $props();
 
 	const internal = $derived(href?.startsWith('/') || href?.startsWith('#'));
-	const rel = $derived(!internal ? 'noopener noreferrer' : undefined);
-	const target = $derived(!internal ? '_blank' : undefined);
 </script>
 
 <a
 	bind:this={ref}
-	class={cn('font-medium underline underline-offset-2', className)}
+	class={cn(
+		'hover:text-primary font-medium underline underline-offset-2 transition-colors duration-200',
+		className,
+	)}
+	rel={!internal ? 'noopener noreferrer' : undefined}
+	target={!internal ? '_blank' : undefined}
 	{href}
-	{target}
-	{rel}
 	{...restProps}
 >
 	{@render children?.()}

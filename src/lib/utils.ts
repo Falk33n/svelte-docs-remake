@@ -34,12 +34,15 @@ function findMatch(slug: string, modules: Modules) {
 	return match;
 }
 
-export async function getDoc(slug: string) {
-	const modules = import.meta.glob(`/src/content/**/*.md`);
-	const match = findMatch(slug, modules);
-	const doc = await match?.resolver?.();
+let prevModules: Modules | undefined; 
 
+export async function getDoc(slug: string) {
+	prevModules ??= import.meta.glob(`/src/content/**/*.md`);
+
+	const match = findMatch(slug, prevModules);
+	const doc = await match?.resolver?.();
 	const metadata = docs.find((doc) => doc.path === slug);
+
 	if (!doc || !metadata) {
 		error(404);
 	}
@@ -51,17 +54,24 @@ export async function getDoc(slug: string) {
 	};
 }
 
+export async function getAllDocs() {
+	prevModules ??= import.meta.glob(`/src/content/**/*.md`);
+
+	const docs = [];
+
+	for (const path in prevModules) {
+		const slug = slugFromPath(path);
+		const doc = await getDoc(slug);
+        docs.push(doc);
+	}
+
+	return docs;
+}
+
 export function capitalize(str: string) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function capitalizeDocsTitleLink(str: string) {
-	const splitWords = str.split(/[\s-]+/);
-
-	const capitalizedWords = splitWords.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
-
-	return {
-		text: capitalizedWords.join(' '),
-		link: capitalizedWords.join('-'),
-	};
+export function convertToHref(str: string): string {
+	return str.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
 }

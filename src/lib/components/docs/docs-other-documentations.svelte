@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as HTMLElement from '$lib/components/markdown';
 	import { cn } from '$lib/utils';
+	import * as HTMLElement from '../markdown';
 	import { Separator } from '../ui/separator';
 
 	type Props = {
@@ -46,7 +46,7 @@
 
 	<div
 		class={cn(
-			'flex items-center gap-2 pt-1 pb-4',
+			'flex items-center gap-2 pt-1',
 			!prevPath && nextPath ? 'justify-end' : 'justify-between',
 		)}
 	>
@@ -56,6 +56,7 @@
 			<HTMLElement.a
 				href={`/docs/${isSvelteKit ? 'kit' : 'svelte'}/${key}`}
 				aria-describedby="previous-page"
+				class="text-primary no-underline hover:underline"
 			>
 				{value}
 			</HTMLElement.a>
@@ -67,6 +68,7 @@
 			<HTMLElement.a
 				href={`/docs/${isSvelteKit ? 'kit' : 'svelte'}/${key}`}
 				aria-describedby="next-page"
+				class="text-primary no-underline hover:underline"
 			>
 				{value}
 			</HTMLElement.a>

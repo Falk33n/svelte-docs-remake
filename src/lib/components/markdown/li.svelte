@@ -1,28 +1,17 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLLiAttributes } from 'svelte/elements';
 
-	type ListItemProps = WithElementRef<HTMLLiAttributes, HTMLLIElement>;
-</script>
+	type Props = WithElementRef<HTMLLiAttributes, HTMLLIElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: ListItemProps = $props();
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 </script>
 
 <li
 	bind:this={ref}
-	class={cn('mt-2', className)}
+	class={cn('mt-2 ml-2 font-semibold', className)}
 	{...restProps}
 >
-	{@render children?.()}
+	<span class="relative left-[10px]">{@render children?.()}</span>
 </li>

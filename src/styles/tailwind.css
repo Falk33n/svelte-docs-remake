@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-	--radius: 0.5rem;
+	--radius: var(--radius);
 
 	--font-geist-sans:
 		geist-sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -38,7 +38,7 @@
 	--color-input: var(--input);
 	--color-ring: var(--ring);
 
-	--color-sidebar-background: var(--sidebar-background);
+	--color-sidebar: var(--sidebar);
 	--color-sidebar-foreground: var(--sidebar-foreground);
 
 	--color-sidebar-primary: var(--sidebar-primary);
@@ -49,9 +49,6 @@
 
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
-
-	--animate-accordion-open: accordion-open 0.2s ease-out;
-	--animate-accordion-close: accordion-close 0.2s ease-out forwards;
 }
 
 @layer base {

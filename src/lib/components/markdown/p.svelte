@@ -1,30 +1,16 @@
-<script
-	lang="ts"
-	module
->
+<script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	type ParagraphProps = WithElementRef<
-		HTMLAttributes<HTMLParagraphElement>,
-		HTMLParagraphElement
-	>;
-</script>
+	type Props = WithElementRef<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
-<script lang="ts">
-	import { cn } from '$lib/utils';
-
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: ParagraphProps = $props();
+	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
 </script>
 
 <p
 	bind:this={ref}
-	class={cn('leading-6 [&:not(:first-child)]:mt-4', className)}
+	class={cn('leading-7 [&:not(:first-child)]:mt-4', className)}
 	{...restProps}
 >
 	{@render children?.()}
