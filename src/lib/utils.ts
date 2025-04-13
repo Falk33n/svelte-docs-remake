@@ -34,7 +34,7 @@ function findMatch(slug: string, modules: Modules) {
 	return match;
 }
 
-let prevModules: Modules | undefined; 
+let prevModules: Modules | undefined;
 
 export async function getDoc(slug: string) {
 	prevModules ??= import.meta.glob(`/src/content/**/*.md`);
@@ -62,7 +62,7 @@ export async function getAllDocs() {
 	for (const path in prevModules) {
 		const slug = slugFromPath(path);
 		const doc = await getDoc(slug);
-        docs.push(doc);
+		docs.push(doc);
 	}
 
 	return docs;
@@ -73,5 +73,10 @@ export function capitalize(str: string) {
 }
 
 export function convertToHref(str: string): string {
-	return str.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
+	return str
+		.toLowerCase()
+		.replace('.', '')
+		.replaceAll(' ', '-')
+		.replaceAll('?', '')
+		.replaceAll('.', '-');
 }

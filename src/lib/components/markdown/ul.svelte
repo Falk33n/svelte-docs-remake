@@ -10,7 +10,7 @@
 
 <ul
 	bind:this={ref}
-	class={cn('my-6 ml-6 list-inside list-disc', className)}
+	class={cn('my-6 ml-6 list-disc', className)}
 	{...restProps}
 >
 	{@render children?.()}

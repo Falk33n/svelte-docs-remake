@@ -80,7 +80,7 @@
 	});
 </script>
 
-<aside class="hidden xl:block">
+<aside class="order-2 hidden xl:block">
 	<nav class="sticky space-y-2 lg:top-24">
 		<HTMLElement.h4
 			class="mt-0 text-xl"
@@ -89,7 +89,7 @@
 			On this page
 		</HTMLElement.h4>
 
-		<HTMLElement.ol class="m-0 space-y-3">
+		<HTMLElement.ol class="m-0 list-inside space-y-3">
 			<DocsOnThisPageLink
 				bind:activeLink
 				href={titleAsHref}

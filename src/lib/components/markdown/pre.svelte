@@ -7,7 +7,13 @@
 
 	type Props = WithElementRef<HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
 
-	let { ref = $bindable(null), class: className, children, ...restProps }: Props = $props();
+	let {
+		ref = $bindable(null),
+		class: className,
+		tabindex,
+		children,
+		...restProps
+	}: Props = $props();
 
 	let code = $state('');
 
@@ -24,6 +30,7 @@
 		'selection:bg-background selection:text-foreground my-4 max-h-[650px] overflow-auto rounded-lg border bg-zinc-900 px-2 py-6',
 		className,
 	)}
+	tabindex="-1"
 	{...restProps}>
 	{@render children?.()}
 </pre>

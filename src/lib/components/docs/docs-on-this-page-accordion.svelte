@@ -32,7 +32,7 @@
 		<Accordion.Trigger class="data-[state=open]:border-b">On this page</Accordion.Trigger>
 
 		<Accordion.Content class="pt-4 text-base">
-			<HTMLElement.ol class="m-0 space-y-4">
+			<HTMLElement.ol class="m-0 list-inside space-y-4">
 				<DocsOnThisPageLink
 					class="underline"
 					href={titleAsHref}

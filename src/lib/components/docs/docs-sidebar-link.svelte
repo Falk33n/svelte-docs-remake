@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { cn } from '$lib/utils';
 	import * as HTMLElement from '../markdown';
+	import DocsListItem from './docs-list-item.svelte';
 
 	type Props = {
 		href: string;
@@ -19,7 +20,7 @@
 	});
 </script>
 
-<HTMLElement.li class="mt-0 ml-0 text-base [&>span]:left-0">
+<DocsListItem class="mt-0 ml-0 text-base [&>span]:left-[2px]">
 	<HTMLElement.a
 		aria-describedby={`sidebar-category-${category.toLowerCase()}`}
 		class={cn('no-underline hover:underline', isCurrentPath && 'text-primary underline')}
@@ -27,4 +28,4 @@
 	>
 		{text}
 	</HTMLElement.a>
-</HTMLElement.li>
+</DocsListItem>

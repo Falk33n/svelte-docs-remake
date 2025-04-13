@@ -2,6 +2,7 @@
 	import { cn } from '$lib/utils';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 	import * as HTMLElement from '../markdown';
+	import DocsListItem from './docs-list-item.svelte';
 
 	type Props = {
 		href: string;
@@ -22,7 +23,7 @@
 	}: Props = $props();
 </script>
 
-<HTMLElement.li class="mt-0">
+<DocsListItem class="mt-0">
 	<HTMLElement.a
 		href={`#${href}`}
 		aria-describedby="on-this-page"
@@ -38,4 +39,4 @@
 	>
 		{text}
 	</HTMLElement.a>
-</HTMLElement.li>
+</DocsListItem>

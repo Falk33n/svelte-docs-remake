@@ -1,5 +1,6 @@
 export { default as DocsBreadcrumb } from './docs-breadcrumb.svelte';
 export { default as DocsHeading } from './docs-heading.svelte';
+export { default as DocsListItem } from './docs-list-item.svelte';
 export { default as DocsMarkdown } from './docs-markdown.svelte';
 export { default as DocsOnThisPageAccordion } from './docs-on-this-page-accordion.svelte';
 export { default as DocsOnThisPageLink } from './docs-on-this-page-link.svelte';

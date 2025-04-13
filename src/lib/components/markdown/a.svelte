@@ -13,7 +13,7 @@
 <a
 	bind:this={ref}
 	class={cn(
-		'hover:text-primary font-medium underline underline-offset-2 transition-colors duration-200',
+		'hover:text-primary focus-visible:ring-sidebar-ring rounded-sm font-medium underline underline-offset-2 transition-colors duration-200 focus-visible:ring-2 focus-visible:outline-none',
 		className,
 	)}
 	rel={!internal ? 'noopener noreferrer' : undefined}

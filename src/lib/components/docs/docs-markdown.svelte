@@ -24,7 +24,7 @@
 	<HTMLElement.p class="pt-6">
 		<HTMLElement.a
 			href={`https://github.com/Falk33n/svelte-docs-remake/edit/main/src/content/${path}.md`}
-			class="text-primary flex items-center gap-2 no-underline hover:underline"
+			class="text-primary inline-flex items-center gap-2 no-underline hover:underline"
 			aria-label="Edit this page on GitHub, opens in a new tab"
 		>
 			<EditIcon

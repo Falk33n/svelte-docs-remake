@@ -9,11 +9,15 @@
 <Breadcrumb.Root class="pb-2">
 	<Breadcrumb.List class="sm:gap-1">
 		<Breadcrumb.Item>Docs</Breadcrumb.Item>
+
 		<Breadcrumb.Separator />
+
 		<Breadcrumb.Item>
 			{isSvelteKit ? 'SvelteKit' : 'Svelte'}
 		</Breadcrumb.Item>
+
 		<Breadcrumb.Separator />
+
 		<Breadcrumb.Item>
 			<Breadcrumb.Page class="font-medium">{title}</Breadcrumb.Page>
 		</Breadcrumb.Item>

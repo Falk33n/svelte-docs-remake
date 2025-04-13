@@ -67,7 +67,7 @@ When using TypeScript and import such exports from a module block into a .ts fil
 
 <DeprecatedHeading />
 
-In <DeprecatedText />, this script tag was created using `<script lang="ts" context="module">`. But <strong>Svelte 5</strong> simplifies this — now you can just write `<script lang="ts" module>`
+In <DeprecatedText />, this script tag was created using `<script lang="ts" context="module">`. But **Svelte 5** simplifies this — now you can just write `<script lang="ts" module>`
 
 ---
 

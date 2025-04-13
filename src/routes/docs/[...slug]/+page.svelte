@@ -23,14 +23,21 @@
 	/>
 </svelte:head>
 
-<div class="px-4 py-12 sm:px-6 lg:px-12 lg:py-16 2xl:pr-0">
+<div
+	class="bg-background border-r-sidebar-border border-r px-4 pt-12 pb-28 sm:px-6 md:pb-12 lg:px-12 lg:py-16 2xl:pr-0"
+>
 	<DocsBreadcrumb
 		title={metadata.title}
 		{isSvelteKit}
 	/>
 
 	<main class="lg:gap-8 xl:grid xl:grid-cols-[1fr_250px]">
-		<div>
+		<DocsOnThisPage
+			linksOnThisPage={metadata.linksOnThisPage}
+			title={data.title}
+		/>
+
+		<div class="order-1">
 			<DocsHeading
 				description={metadata.description}
 				title={data.title}
@@ -52,10 +59,5 @@
 				{isSvelteKit}
 			/>
 		</div>
-
-		<DocsOnThisPage
-			linksOnThisPage={metadata.linksOnThisPage}
-			title={data.title}
-		/>
 	</main>
 </div>

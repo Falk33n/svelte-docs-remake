@@ -10,6 +10,8 @@
 	};
 
 	let { prevPath, nextPath, isSvelteKit = false }: Props = $props();
+
+	const startPath = $derived(`/docs/${isSvelteKit ? 'kit' : 'svelte'}`);
 </script>
 
 <aside>
@@ -54,9 +56,9 @@
 			{@const [key, value] = Object.entries(prevPath)[0]}
 
 			<HTMLElement.a
-				href={`/docs/${isSvelteKit ? 'kit' : 'svelte'}/${key}`}
+				href={`${startPath}/${key}`}
 				aria-describedby="previous-page"
-				class="text-primary no-underline hover:underline"
+				class="text-primary text-left no-underline hover:underline"
 			>
 				{value}
 			</HTMLElement.a>
@@ -66,9 +68,9 @@
 			{@const [key, value] = Object.entries(nextPath)[0]}
 
 			<HTMLElement.a
-				href={`/docs/${isSvelteKit ? 'kit' : 'svelte'}/${key}`}
+				href={`${startPath}/${key}`}
 				aria-describedby="next-page"
-				class="text-primary no-underline hover:underline"
+				class="text-primary text-right no-underline hover:underline"
 			>
 				{value}
 			</HTMLElement.a>

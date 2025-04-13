@@ -12,7 +12,7 @@
 </script>
 
 <Sidebar.Root
-	class="sticky top-0 h-screen overflow-y-auto px-6 pt-24 pb-16"
+	class="border-r-sidebar-border sticky top-0 h-screen border-r px-6 pt-24 pb-16"
 	collapsible="none"
 	aria-label="Sidebar"
 >
@@ -22,7 +22,7 @@
 		id="sidebar-content"
 	>
 		{#each Object.entries(sidebarLinks) as [category, links]}
-			<Sidebar.Group class="space-y-1 p-0">
+			<Sidebar.Group class="space-y-3 p-0">
 				<Sidebar.GroupLabel
 					class="font-heading text-sidebar-foreground px-0 text-xl"
 					id={`sidebar-category-${category.toLowerCase()}`}
@@ -32,7 +32,7 @@
 				</Sidebar.GroupLabel>
 
 				<Sidebar.GroupContent>
-					<HTMLElement.ol class="m-0 list-outside list-none space-y-3">
+					<HTMLElement.ol class="m-0 list-none space-y-3">
 						{#each links as { title, href }}
 							<DocsSidebarLink
 								text={title}

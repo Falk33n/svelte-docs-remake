@@ -10,7 +10,7 @@
 
 <ol
 	bind:this={ref}
-	class={cn('my-6 ml-6 list-inside list-decimal', className)}
+	class={cn('my-6 ml-6 list-decimal', className)}
 	{...restProps}
 >
 	{@render children?.()}

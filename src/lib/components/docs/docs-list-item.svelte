@@ -10,8 +10,8 @@
 
 <li
 	bind:this={ref}
-	class={cn('mt-2', className)}
+	class={cn('mt-2 ml-2 font-semibold', className)}
 	{...restProps}
 >
-	{@render children?.()}
+	<span class="relative left-[10px]">{@render children?.()}</span>
 </li>

@@ -12,7 +12,7 @@
 <h5
 	bind:this={ref}
 	class={cn(
-		'mt-8 flex scroll-m-20 items-center gap-1.5 text-lg font-semibold tracking-tight',
+		'mt-5 flex scroll-m-20 items-center gap-1.5 text-lg font-semibold tracking-tight',
 		className,
 	)}
 	aria-label="Svelte 4, the following information is deprecated"
@@ -23,12 +23,7 @@
 		aria-hidden
 	/>
 
-	Svelte 4
+	<span class="whitespace-nowrap">Svelte 4</span>
 
-	<span
-		class="text-muted-foreground text-sm font-medium tracking-wide"
-		aria-hidden={true}
-	>
-		(Deprecated)
-	</span>
+	<span class="text-muted-foreground text-sm font-medium tracking-wide">(Deprecated)</span>
 </h5>
