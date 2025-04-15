@@ -28,8 +28,8 @@
 		href={`#${href}`}
 		aria-describedby="on-this-page"
 		class={cn(
-			'no-underline hover:underline',
-			activeLink.current === href && 'text-primary underline',
+			'font-normal no-underline hover:underline',
+			activeLink.current === href && 'text-primary font-medium underline',
 			className,
 		)}
 		onclick={(e) => {

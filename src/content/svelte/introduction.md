@@ -11,12 +11,12 @@ Svelte is a framework for building user interfaces on the web. It uses a compile
 
 ```svelte
 <script lang="ts">
-	function greet(): void {
+	function greetVisitor(): void {
 		alert('Welcome to Svelte!');
 	}
 </script>
 
-<button onclick={greet}>click me</button>
+<button onclick={greetVisitor}>click me</button>
 
 <style>
 	button {

@@ -9,7 +9,7 @@
 </script>
 
 <div class="bg-background md:bg-sidebar w-full">
-	<div class="w-full xl:mx-auto xl:max-w-[1500px]">
+	<div class="w-full xl:mx-auto xl:max-w-[1600px]">
 		<div class="md:grid md:grid-cols-[240px_1fr]">
 			<SidebarProvider class="hidden md:block">
 				<DocsSidebar

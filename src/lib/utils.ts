@@ -75,6 +75,7 @@ export function capitalize(str: string) {
 export function convertToHref(str: string): string {
 	return str
 		.toLowerCase()
+		.replace('$', '')
 		.replace('.', '')
 		.replaceAll(' ', '-')
 		.replaceAll('?', '')

@@ -52,12 +52,12 @@ A `<script lang="ts">` tag with a `module` attribute runs once when the module f
 <!-- prettier-ignore -->
 ```svelte
 <script lang="ts" module>
-	let total: number = 0;
+	let totalInstancinations: number = 0;
 </script>
 
 <script lang="ts">
-	total += 1;
-	console.log(`instantiated ${total} times`);
+	totalInstancinations += 1;
+	console.log(`instantiated ${totalInstancinations} times`);
 </script>
 ```
 

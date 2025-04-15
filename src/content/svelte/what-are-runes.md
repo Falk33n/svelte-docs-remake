@@ -6,7 +6,7 @@ order: 5
 prevPath:
     svelte-ts-files: .svelte.ts files
 nextPath:
-    $state: $state
+    state: $state
 ---
 
 <script lang="ts">
@@ -19,10 +19,8 @@ But runes are also symbols that you use in `.svelte` and `.svelte.ts` files to c
 
 Runes have a `$` prefix and look like functions:
 
-```svelte
-<script lang="ts">
-	let message = $state<string>('hello');
-</script>
+```ts
+let message = $state<string>('hello');
 ```
 
 They differ from normal JavaScript functions in important ways, however:

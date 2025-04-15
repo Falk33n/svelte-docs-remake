@@ -23,7 +23,10 @@
 <DocsListItem class="mt-0 ml-0 text-base [&>span]:left-[2px]">
 	<HTMLElement.a
 		aria-describedby={`sidebar-category-${category.toLowerCase()}`}
-		class={cn('no-underline hover:underline', isCurrentPath && 'text-primary underline')}
+		class={cn(
+			'font-normal no-underline hover:underline',
+			isCurrentPath && 'text-primary font-medium underline',
+		)}
 		href={`${startPath}/${href}`}
 	>
 		{text}

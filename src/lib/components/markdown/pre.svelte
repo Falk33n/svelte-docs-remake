@@ -27,7 +27,7 @@
 <pre
 	bind:this={ref}
 	class={cn(
-		'selection:bg-background selection:text-foreground my-4 max-h-[650px] overflow-auto rounded-lg border bg-zinc-900 px-2 py-6',
+		'selection:bg-background selection:text-foreground my-4 overflow-auto rounded-lg border bg-zinc-900 px-2 py-6',
 		className,
 	)}
 	tabindex="-1"

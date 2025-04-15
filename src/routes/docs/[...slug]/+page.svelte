@@ -31,7 +31,7 @@
 		{isSvelteKit}
 	/>
 
-	<main class="lg:gap-8 xl:grid xl:grid-cols-[1fr_250px]">
+	<main class="lg:gap-8 xl:grid xl:grid-cols-[1fr_320px]">
 		<DocsOnThisPage
 			linksOnThisPage={metadata.linksOnThisPage}
 			title={data.title}
